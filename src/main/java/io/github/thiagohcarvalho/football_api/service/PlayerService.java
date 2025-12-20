@@ -26,12 +26,12 @@ public class PlayerService {
     }
 
     public List<Player> getPlayersFromTeam(String teamName) {
-        return playerRepository.findByTeam_name(teamName);
+        return playerRepository.findByTeamName(teamName);
     }
 
     // precisa passar pra lowercase
     public List<Player> getPlayersFromName(String playerName) {
-        return playerRepository.findByPlayer_nameContaining(playerName);
+        return playerRepository.findByNameContaining(playerName);
     }
 
     public List<Player> getPlayersFromPosition(String position) {
@@ -43,7 +43,7 @@ public class PlayerService {
     }
 
     public List<Player> getPlayersFromTeamAndPosition(String teamName, String position) {
-        return playerRepository.findByTeam_nameAndPosition(teamName, position);
+        return playerRepository.findByTeamNameAndPosition(teamName, position);
     }
 
     public Player addPlayer(Player player) {
@@ -56,7 +56,7 @@ public class PlayerService {
         if (existingPlayer.isPresent()) {
             Player playerToUpdate = existingPlayer.get();
             playerToUpdate.setName(updatedPlayer.getName());
-            playerToUpdate.setTeam_name(updatedPlayer.getTeam_name());
+            playerToUpdate.setTeamName(updatedPlayer.getTeamName());
             playerToUpdate.setPosition(updatedPlayer.getPosition());
             playerToUpdate.setNation(updatedPlayer.getNation());
 
